@@ -13,7 +13,19 @@ export class ProductListComponent implements OnInit {
   //porperty keeps track if images are currenlty displayed
   //images are not displayed when page is loaded
   showImage: boolean = false;
-  listFilter: string = 'cart';
+  // listFilter: string = 'cart';
+
+  //_ - to denote it as private
+  private _listFilter: string = '';
+
+  get listFilter(): string {
+    return this._listFilter;
+  }
+
+  set listFilter(value: string) {
+    this._listFilter = value;
+    console.log('In Setter', value);
+  }
 
   products: Iproduct[] = [
     {
@@ -48,6 +60,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('In OnInit');
+    this.listFilter = 'cart';
   }
 }
 
