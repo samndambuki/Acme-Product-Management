@@ -11,6 +11,7 @@ export class ProductListComponent {
   //porperty keeps track if images are currenlty displayed
   //images are not displayed when page is loaded
   showImage: boolean = false;
+  listFilter:string = "cart";
 
   products: any[] = [
     {
