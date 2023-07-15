@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Iproduct } from './products';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -16,6 +17,7 @@ export class ProductListComponent implements OnInit {
   // listFilter: string = 'cart';
 
   //_ - to denote it as private
+  //backing variablr
   private _listFilter: string = '';
 
   get listFilter(): string {
@@ -25,7 +27,12 @@ export class ProductListComponent implements OnInit {
   set listFilter(value: string) {
     this._listFilter = value;
     console.log('In Setter', value);
+    this.filteredProducts = this.performFilter(value)
   }
+
+
+  filteredProducts: Iproduct[] = []
+
 
   products: Iproduct[] = [
     {
@@ -50,6 +57,13 @@ export class ProductListComponent implements OnInit {
     },
   ];
 
+  performFilter(filterBy:string):Iproduct[]{
+    filterBy = filterBy.toLocaleLowerCase()
+    return this.products.filter((product:Iproduct)=>
+    product.productName.toLocaleLowerCase().includes(filterBy))
+
+  }
+
   //methods created after properties defined
   toggleImage(): void {
     //toggles state o fthe show image property
@@ -62,6 +76,21 @@ export class ProductListComponent implements OnInit {
     console.log('In OnInit');
     this.listFilter = 'cart';
   }
+
+  //normal function to capitalize
+  // capitalizeName(product:Iproduct) :string{
+  //   return product.productName.toUpperCase();
+  // }
+
+  //arrow function
+  // (product:Iproduct) => product.productName.toUpperCase()
+
+  //multistatement
+  // (product:Iproduct) => {
+  //   console.log(product.productName);
+  //   return product.productName.toUpperCase();
+  // }
+
 }
 
 // let nicknames = ['sam','john','james']
