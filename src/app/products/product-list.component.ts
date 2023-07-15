@@ -6,9 +6,12 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
   pageTitle: string = 'Product List';
-  imageWidth:number = 50;
-  imageMargin:number = 2;
-  
+  imageWidth: number = 50;
+  imageMargin: number = 2;
+  //porperty keeps track if images are currenlty displayed
+  //images are not displayed when page is loaded
+  showImage: boolean = false;
+
   products: any[] = [
     {
       productId: 2,
@@ -31,9 +34,17 @@ export class ProductListComponent {
       imageUrl: 'assets/images/hammer.png',
     },
   ];
+
+  //methods created after properties defined
+  toggleImage(): void {
+    //toggles state o fthe show image property
+    //! - not operator
+    //retruns false if operand is true
+    this.showImage = !this.showImage;
+  }
 }
 
-let nicknames = ['sam','john','james']
-for(let nickname in nicknames){
-  console.log(nickname)
-}
+// let nicknames = ['sam','john','james']
+// for(let nickname in nicknames){
+//   console.log(nickname)
+// }
