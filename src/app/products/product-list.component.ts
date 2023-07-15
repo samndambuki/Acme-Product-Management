@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
   pageTitle: string = 'Product List';
-
+  imageWidth:number = 50;
+  imageMargin:number = 2;
+  
   products: any[] = [
     {
       productId: 2,
@@ -29,4 +31,9 @@ export class ProductListComponent {
       imageUrl: 'assets/images/hammer.png',
     },
   ];
+}
+
+let nicknames = ['sam','john','james']
+for(let nickname in nicknames){
+  console.log(nickname)
 }
