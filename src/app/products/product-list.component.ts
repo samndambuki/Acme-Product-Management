@@ -4,6 +4,7 @@ import { Iproduct } from './products';
 @Component({
   selector: 'app-products',
   templateUrl: './product-list.component.html',
+  styleUrls:['./product-list.component.css'],
 })
 export class ProductListComponent {
   pageTitle: string = 'Product List';
