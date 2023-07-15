@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Iproduct } from './products';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -27,12 +26,10 @@ export class ProductListComponent implements OnInit {
   set listFilter(value: string) {
     this._listFilter = value;
     console.log('In Setter', value);
-    this.filteredProducts = this.performFilter(value)
+    this.filteredProducts = this.performFilter(value);
   }
 
-
-  filteredProducts: Iproduct[] = []
-
+  filteredProducts: Iproduct[] = [];
 
   products: Iproduct[] = [
     {
@@ -57,11 +54,11 @@ export class ProductListComponent implements OnInit {
     },
   ];
 
-  performFilter(filterBy:string):Iproduct[]{
-    filterBy = filterBy.toLocaleLowerCase()
-    return this.products.filter((product:Iproduct)=>
-    product.productName.toLocaleLowerCase().includes(filterBy))
-
+  performFilter(filterBy: string): Iproduct[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: Iproduct) =>
+      product.productName.toLocaleLowerCase().includes(filterBy)
+    );
   }
 
   //methods created after properties defined
@@ -90,7 +87,6 @@ export class ProductListComponent implements OnInit {
   //   console.log(product.productName);
   //   return product.productName.toUpperCase();
   // }
-
 }
 
 // let nicknames = ['sam','john','james']
