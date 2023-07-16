@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Iproduct } from './products';
 import { ProductService } from './product.service';
+import { Observable, filter, map, range } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -78,9 +79,25 @@ export class ProductListComponent implements OnInit {
   //   console.log(product.productName);
   //   return product.productName.toUpperCase();
   // }
+
 }
+
+  //number - geeric argument
+  // const source$:Observable<number> = range(0,10);
+  // source$.pipe(
+    //two operators
+    //transform each emitted item
+  //   map(x=>x*3),
+  //x is the item omitted from prior operator
+  //   filter(x=>x%2 === 0)
+  //start the observable using subscribe method
+  //observable omits a range of numbers
+  // ).subscribe(x=>console.log(x));
+
 
 // let nicknames = ['sam','john','james']
 // for(let nickname in nicknames){
 //   console.log(nickname)
 // }
+
+
