@@ -14,8 +14,7 @@ export class ProductDetailComponent implements OnInit {
 
   //property is undeined until data is retrieved
   //its of type IProduct
-  product:Iproduct | undefined;
-
+  product: Iproduct | undefined;
 
   //this component needs to read the route parameter
   //so as to know which products details to display
@@ -23,16 +22,15 @@ export class ProductDetailComponent implements OnInit {
   //Activated Route Service provides the state of the current route, including route parameters
 
   //set activated route as a dependency by defining it as a parameter to the constructor function
-  constructor(private route: ActivatedRoute,private router:Router) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   //called when the component is initialized
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.pageTitle += ` : ${id}`; 
+    this.pageTitle += ` : ${id}`;
   }
 
-  onBack():void{
-    this.router.navigate(['/products'])
+  onBack(): void {
+    this.router.navigate(['/products']);
   }
-  
 }
